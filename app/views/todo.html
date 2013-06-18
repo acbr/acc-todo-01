@@ -1,0 +1,48 @@
+<div class="navbar navbar-inverse ">
+	<div class="navbar-inner">
+		<div class="container-fluid">
+			<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="brand" href="#">TodoList Project</a>
+			<div class="nav-collapse collapse">
+				<ul class="nav">
+					<li><a href="#">Home</a></li>
+					<li class="active"><a href="#">Todos</a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</div>
+</div>
+<div class="container-fluid">
+      <div class="row-fluid">
+    	<p class="task-counter-info text-info" ng-hide="todos.filter(undoneTasksFilter).length == 0">You still have <span class="badge badge-info undone-count">{{todos.filter(undoneTasksFilter).length}}</span> <ng-pluralize count="todos.filter(undoneTasksFilter).length" when="taskPluralize"></ng-pluralize> to do</p>
+    	<p class="no-task-info text-success" ng-hide="todos.filter(undoneTasksFilter).length != 0"><strong>Contratulations!</strong> All the tasks are done! :)</p>
+        <div class="span7" style="margin: 0 auto; float: none;">
+            <h1 class="text-center">Todo!</h1>
+            <ul id="todos" class="unstyled">
+            	<li ng-repeat="todo in todos">
+            		<label class="checkbox">
+        				<input type="checkbox" ng-model="todo.done"/>
+	            		<p class="todo-item" ng-class="lineThroughClass(todo.done)">{{todo.item}}</p>
+	            	</label>
+            	</li>
+            </ul>
+    		<div class="input-append">
+    			<form>
+            		<input type="text" class="input-xxlarge" ng-model="newTodo.item" />
+            		<button id="add" ng-click="addItem()" class="btn btn-success"><span class="icon-plus icon-white"></span></button>
+    			</form>
+    		</div>
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>Avenue Code © Company 2013</p>
+      </footer>
+
+    </div>
